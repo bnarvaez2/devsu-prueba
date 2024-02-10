@@ -1,0 +1,372 @@
+{
+	"info": {
+		"_postman_id": "5dde45f9-8bb5-40da-be64-d114e25fa7ce",
+		"name": "devsu - prueba",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15447888",
+		"_collection_link": "https://orange-astronaut-432173.postman.co/workspace/pruebaBideafactory~afe121bd-f446-44b3-8f60-27add0bd5f8f/collection/15447888-5dde45f9-8bb5-40da-be64-d114e25fa7ce?action=share&source=collection_link&creator=15447888"
+	},
+	"item": [
+		{
+			"name": "clientes",
+			"item": [
+				{
+					"name": "Obtener clientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/client-test/clientes",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"client-test",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener cliente por identificacion",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/client-test/clientes/123456789",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"client-test",
+								"clientes",
+								"123456789"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"12345\",\r\n  \"identification\": 123456789,\r\n  \"firstName\": \"Brian\",\r\n  \"lastName\": \"Narvaz\",\r\n  \"gender\": \"Masculino\",\r\n  \"age\": 25,\r\n  \"address\": \"Cra 11 #4 - 23, Barranquilla\",\r\n  \"phoneNumber\": \"3013110000\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/client-test/clientes",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"client-test",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar cliente",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"12345\",\r\n  \"firstName\": \"Brian\",\r\n  \"lastName\": \"Narvaez\",\r\n  \"gender\": \"Masculino\",\r\n  \"age\": 25,\r\n  \"address\": \"Cra 11 #4 - 23, Barranquilla\",\r\n  \"phoneNumber\": \"3013110000\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/client-test/clientes?identification=123456789",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"client-test",
+								"clientes"
+							],
+							"query": [
+								{
+									"key": "identification",
+									"value": "123456789"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar cliente",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/client-test/clientes?identification=1234",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"client-test",
+								"clientes"
+							],
+							"query": [
+								{
+									"key": "identification",
+									"value": "1234"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cuentas",
+			"item": [
+				{
+					"name": "Obtener cuentas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/account-test/cuentas",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"account-test",
+								"cuentas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener cuentas por id de cuenta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/account-test/cuentas/100001",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"account-test",
+								"cuentas",
+								"100001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener cuentas por id de cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/account-test/cuentas/client?identification=123456789",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"account-test",
+								"cuentas",
+								"client"
+							],
+							"query": [
+								{
+									"key": "identification",
+									"value": "123456789"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear cuenta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clientId\": 123456789,\r\n    \"type\": \"ahorro\",\r\n    \"initialBalance\": 1000000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8082/account-test/cuentas",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"account-test",
+								"cuentas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar cuenta",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/account-test/cuentas?accountId=100000",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"account-test",
+								"cuentas"
+							],
+							"query": [
+								{
+									"key": "accountId",
+									"value": "100000"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "movimientos",
+			"item": [
+				{
+					"name": "Obtener movimientos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/account-test/movimientos",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"account-test",
+								"movimientos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener movimientos por id de cuenta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/account-test/movimientos/cuenta/100001",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"account-test",
+								"movimientos",
+								"cuenta",
+								"100001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear movimiento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountId\": 100001,\r\n    \"amount\": -1000,\r\n    \"movementDate\": \"2024-02-10T15:53:58Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8082/account-test/movimientos",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"account-test",
+								"movimientos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "reportes",
+			"item": [
+				{
+					"name": "Obtener reporte por cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/account-test/reportes?clientId=123456789&fecha=2024-01-01,2024-02-10",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"account-test",
+								"reportes"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "123456789"
+								},
+								{
+									"key": "fecha",
+									"value": "2024-01-01,2024-02-10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

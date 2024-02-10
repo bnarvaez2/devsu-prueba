@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  client-service:
+    build:
+      context: .
+      dockerfile: ./containers/Dockerfile
+    ports:
+      - "8081:8081"
+    env_file:
+      - ./environment/.env
+    volumes:
+      - .:/client-microservice
+    networks:
+      - devsu-test-red
+
+networks:
+  devsu-test-red:
+    external: true
